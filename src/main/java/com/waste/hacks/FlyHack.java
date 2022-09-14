@@ -9,7 +9,7 @@ public class FlyHack {
     public static float FallSpeed = 0.04f;
     public static int toggle = 40;
     public static void tick(MinecraftClient client){
-        if(client.player != null){
+        if(client.player != null && Hacks.FlyHackEnabled){
             boolean forward = client.options.forwardKey.isPressed();
             boolean back = client.options.backKey.isPressed();
             boolean left = client.options.leftKey.isPressed();

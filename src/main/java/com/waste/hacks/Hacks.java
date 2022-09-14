@@ -7,6 +7,7 @@ public class Hacks implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger("modid");
     public static boolean fishCaught;
     public static boolean AutoFishEnabled = true;
+    public static boolean FlyHackEnabled = true;
     @Override
     public void onInitialize() {
         // This code runs as soon as Minecraft is in a mod-load-ready state.
