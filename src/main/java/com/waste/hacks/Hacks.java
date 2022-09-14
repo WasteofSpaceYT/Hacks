@@ -5,7 +5,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 public class Hacks implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger("modid");
-
+    public static boolean fishCaught;
+    public static boolean AutoFishEnabled = true;
     @Override
     public void onInitialize() {
         // This code runs as soon as Minecraft is in a mod-load-ready state.
