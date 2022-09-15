@@ -1,5 +1,6 @@
 package com.waste.hacks;
 
+import com.waste.hacks.mixin.MinecraftClientMixin;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.text.Text;
@@ -21,6 +22,15 @@ public class HackScreen extends Screen {
         this.addDrawableChild(new ButtonWidget(this.width / 2 - 102, this.height / 4 + 24, 204, 20, Text.translatable("FlyHack: " + (Hacks.FlyHackEnabled ? "On" : "Off")), (button) -> {
             Hacks.FlyHackEnabled = !Hacks.FlyHackEnabled;
             button.setMessage(Text.literal("FlyHack: " + (Hacks.FlyHackEnabled ? "On" : "Off")));
+        }));
+        this.addDrawableChild(new ButtonWidget(this.width / 2 - 102, this.height / 4 + 24 + 16, 204, 20, Text.translatable("FullBright: " + (Hacks.FullBrightEnabled ? "On" : "Off")), (button) -> {
+            if (Hacks.FullBrightEnabled) {
+                Hacks.client.options.getGamma().setValue(Hacks.FBGamma);
+            } else {
+                Hacks.client.options.getGamma().setValue(Hacks.defGamma);
+            }
+            Hacks.FullBrightEnabled = !Hacks.FullBrightEnabled;
+            button.setMessage(Text.literal("FullBright: " + (Hacks.FullBrightEnabled ? "On" : "Off")));
         }));
     }
 }

@@ -12,7 +12,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(MinecraftClient.class)
 public abstract class MinecraftClientMixin {
     @Shadow protected abstract void doItemUse();
-    @Shadow static MinecraftClient instance;
+    @Shadow
+    public static MinecraftClient instance;
 
     @Inject(at = @At("TAIL"), method = "tick()V")
     private void tick(CallbackInfo ci){
