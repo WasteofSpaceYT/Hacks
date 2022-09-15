@@ -12,7 +12,6 @@ public class Hacks implements ModInitializer {
     public static boolean FullBrightEnabled = true;
     public static double defGamma = 1.0;
     public static double FBGamma = 10000000.0;
-    public static MinecraftClient client = MinecraftClient.getInstance();
     @Override
     public void onInitialize() {
         // This code runs as soon as Minecraft is in a mod-load-ready state.

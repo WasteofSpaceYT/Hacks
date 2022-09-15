@@ -80,6 +80,7 @@ public class FlyHack {
                 }
             }
             client.player.setVelocity(newVelocity);
+            client.player.getDamageTracker().onDamage(DamageSource.FALL, client.player.getHealth(), 0);
         }
     }
 }

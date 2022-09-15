@@ -21,8 +21,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class AutoFishMixin {
     @Shadow private boolean caughtFish;
 
-    @Shadow @Nullable public abstract PlayerEntity getPlayerOwner();
-
     @Inject(at = @At("TAIL"), method="tick()V")
     private void tick(CallbackInfo info) {
         Hacks.fishCaught = caughtFish;

@@ -5,6 +5,8 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.text.Text;
 
+import com.waste.hacks.client.HacksClient;
+
 public class HackScreen extends Screen {
     protected HackScreen(Text title) {
         super(title);
@@ -25,9 +27,9 @@ public class HackScreen extends Screen {
         }));
         this.addDrawableChild(new ButtonWidget(this.width / 2 - 102, this.height / 4 + 24 + 16, 204, 20, Text.translatable("FullBright: " + (Hacks.FullBrightEnabled ? "On" : "Off")), (button) -> {
             if (Hacks.FullBrightEnabled) {
-                Hacks.client.options.getGamma().setValue(Hacks.FBGamma);
+                HacksClient.client.options.getGamma().setValue(Hacks.FBGamma);
             } else {
-                Hacks.client.options.getGamma().setValue(Hacks.defGamma);
+                HacksClient.client.options.getGamma().setValue(Hacks.defGamma);
             }
             Hacks.FullBrightEnabled = !Hacks.FullBrightEnabled;
             button.setMessage(Text.literal("FullBright: " + (Hacks.FullBrightEnabled ? "On" : "Off")));
