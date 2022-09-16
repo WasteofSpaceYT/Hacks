@@ -8,19 +8,26 @@ public class FlyHack {
     public static float speed = 1.0f;
     public static float acceleration = 0.1f;
     public static float FallSpeed = 0.04f;
-    public static int toggle = 40;
+    public static int toggle = 30;
     public static boolean flying = false;
 
     public static void tick(MinecraftClient client) {
         if (client.player != null && Hacks.FlyHackEnabled && flying) {
+            System.out.println(toggle);
             boolean forward = client.options.forwardKey.isPressed();
             boolean back = client.options.backKey.isPressed();
             boolean left = client.options.leftKey.isPressed();
             boolean right = client.options.rightKey.isPressed();
             boolean up = client.options.jumpKey.isPressed();
             boolean down = client.options.sneakKey.isPressed();
+            Vec3d newVelocity;
             Vec3d velocity = client.player.getVelocity();
-            Vec3d newVelocity = new Vec3d(velocity.x, 0, velocity.z);
+            if(toggle == 0) {
+                newVelocity = new Vec3d(velocity.x, -0.4, velocity.z);
+                System.out.println("Dropped");
+            } else {
+                newVelocity = new Vec3d(velocity.x, 0, velocity.z);
+            }
             if (up) {
                 newVelocity = newVelocity.add(0, speed, 0);
             }
@@ -79,8 +86,19 @@ public class FlyHack {
                     newVelocity = new Vec3d(newVelocity.x, -speed/2, newVelocity.z);
                 }
             }
-            client.player.setVelocity(newVelocity);
+
             client.player.getDamageTracker().onDamage(DamageSource.FALL, client.player.getHealth(), 0);
+            if(toggle == 0){
+                client.player.setVelocity(newVelocity.x, -0.4, newVelocity.z);
+                toggle = 30;
+            } else if(toggle == 30){
+                client.player.setVelocity(newVelocity.x, 0.4, newVelocity.z);
+                toggle--;
+            }else {
+                client.player.setVelocity(newVelocity);
+                toggle--;
+            }
+
         }
     }
 }
