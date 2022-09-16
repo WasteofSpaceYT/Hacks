@@ -17,15 +17,15 @@ public class HackScreen extends Screen {
         this.parent = parent;
     }
     public void init() {
-        this.addDrawableChild(new ButtonWidget(this.width / 2 - 102, this.height / 4 + 24 + -16, 204, 20, Text.translatable("AutoFish: " + (Hacks.AutoFishEnabled ? "On" : "Off")), (button) -> {
+        this.addDrawableChild(new ButtonWidget(this.width / 2 - 204, this.height / 4 + 24 + -50, 102, 20, Text.translatable("AutoFish: " + (Hacks.AutoFishEnabled ? "On" : "Off")), (button) -> {
             Hacks.AutoFishEnabled = !Hacks.AutoFishEnabled;
             button.setMessage(Text.literal("AutoFish: " + (Hacks.AutoFishEnabled ? "On" : "Off")));
         }));
-        this.addDrawableChild(new ButtonWidget(this.width / 2 - 102, this.height / 4 + 24, 204, 20, Text.translatable("FlyHack: " + (Hacks.FlyHackEnabled ? "On" : "Off")), (button) -> {
+        this.addDrawableChild(new ButtonWidget(this.width / 2 - 204, this.height / 4 + 24 + -25, 102, 20, Text.translatable("FlyHack: " + (Hacks.FlyHackEnabled ? "On" : "Off")), (button) -> {
             Hacks.FlyHackEnabled = !Hacks.FlyHackEnabled;
             button.setMessage(Text.literal("FlyHack: " + (Hacks.FlyHackEnabled ? "On" : "Off")));
         }));
-        this.addDrawableChild(new ButtonWidget(this.width / 2 - 102, this.height / 4 + 24 + 16, 204, 20, Text.translatable("FullBright: " + (Hacks.FullBrightEnabled ? "On" : "Off")), (button) -> {
+        this.addDrawableChild(new ButtonWidget(this.width / 2 - 204, this.height / 4 + 24, 102, 20, Text.translatable("FullBright: " + (Hacks.FullBrightEnabled ? "On" : "Off")), (button) -> {
             if (Hacks.FullBrightEnabled) {
                 HacksClient.client.options.getGamma().setValue(Hacks.FBGamma);
             } else {
@@ -33,6 +33,10 @@ public class HackScreen extends Screen {
             }
             Hacks.FullBrightEnabled = !Hacks.FullBrightEnabled;
             button.setMessage(Text.literal("FullBright: " + (Hacks.FullBrightEnabled ? "On" : "Off")));
+        }));
+        this.addDrawableChild(new ButtonWidget(this.width / 2 - 204, this.height / 4 + 24 + -25, 102, 20, Text.translatable("X-Ray: " + (Hacks.XRAYEnabled ? "On" : "Off")), (button) -> {
+            Hacks.XRAYEnabled = !Hacks.XRAYEnabled;
+            button.setMessage(Text.literal("X-Ray: " + (Hacks.XRAYEnabled ? "On" : "Off")));
         }));
     }
 }

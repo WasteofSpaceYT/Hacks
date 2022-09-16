@@ -4,7 +4,8 @@
   "package": "com.waste.hacks.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "AutoFishMixin"
+    "AutoFishMixin",
+    "XrayMixin"
   ],
   "client": [
     "HackSettingButton",
