@@ -27,12 +27,13 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import com.waste.hacks.client.HacksClient;
-
+/*
+@Mixin(Block.class)
 public abstract class XrayMixin {
+    @Inject(at=@At("HEAD"), method="shouldDrawSide");
+    @Override
+    private void shouldDrawSid(){
 
-    private static void shouldDrawFace(Direction face, CallbackInfoReturnable<Boolean> cir) {
-        if(Hacks.XRAYEnabled){
-            BlockRenderLayerMapImpl.INSTANCE.putBlock(block, RenderLayer.getTranslucent());
-        }
     }
 }
+*/
