@@ -19,6 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(FishingBobberEntity.class)
 public abstract class AutoFishMixin {
+
     @Shadow private boolean caughtFish;
 
     @Inject(at = @At("TAIL"), method="tick()V")
