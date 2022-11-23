@@ -5,7 +5,13 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "AutoFishMixin",
-    "XrayMixin"
+    "XrayBlockEntityMixin",
+    "XrayBlockRenderMixin",
+    "InGameHudMixin",
+    "SimpleOptionMixin",
+    "BlockMixin",
+    "AbstractBlockMixin",
+    "InteractionManagerMixin"
   ],
   "client": [
     "HackSettingButton",

@@ -13,7 +13,6 @@ public class FlyHack {
 
     public static void tick(MinecraftClient client) {
         if (client.player != null && Hacks.FlyHackEnabled && flying) {
-            System.out.println(toggle);
             boolean forward = client.options.forwardKey.isPressed();
             boolean back = client.options.backKey.isPressed();
             boolean left = client.options.leftKey.isPressed();
@@ -24,7 +23,6 @@ public class FlyHack {
             Vec3d velocity = client.player.getVelocity();
             if(toggle == 0) {
                 newVelocity = new Vec3d(velocity.x, -0.4, velocity.z);
-                System.out.println("Dropped");
             } else {
                 newVelocity = new Vec3d(velocity.x, 0, velocity.z);
             }
@@ -87,7 +85,10 @@ public class FlyHack {
                 }
             }
 
-            client.player.getDamageTracker().onDamage(DamageSource.FALL, client.player.getHealth(), 0);
+            client.player.getDamageTracker().onDamage(DamageSource.FALL, client.player.defaultMaxHealth, 0);
+            client.player.handleFallDamage(0, 0, DamageSource.FALL);
+            System.out.println("FallDistance = " + client.player.fallDistance);
+            client.player.setOnGround(true);
             if(toggle == 0){
                 client.player.setVelocity(newVelocity.x, -0.4, newVelocity.z);
                 toggle = 30;
@@ -98,7 +99,6 @@ public class FlyHack {
                 client.player.setVelocity(newVelocity);
                 toggle--;
             }
-
         }
     }
 }

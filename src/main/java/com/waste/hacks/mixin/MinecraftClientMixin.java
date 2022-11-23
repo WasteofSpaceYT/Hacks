@@ -2,6 +2,7 @@ package com.waste.hacks.mixin;
 
 import com.waste.hacks.FlyHack;
 import com.waste.hacks.Hacks;
+import com.waste.hacks.ReachHack;
 import net.minecraft.client.MinecraftClient;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

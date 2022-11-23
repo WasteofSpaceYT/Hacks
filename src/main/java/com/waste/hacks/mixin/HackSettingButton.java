@@ -19,9 +19,8 @@ public class HackSettingButton extends Screen {
 
     @Inject(at = @At("HEAD"), method = "initWidgets()V")
     private void initWidgets(CallbackInfo ci) {
-        System.out.println("here");
         this.addDrawableChild(new ButtonWidget(10, 10, 90, 20, Text.literal("Waste Hacks"), (button) -> {
-            this.client.setScreen((Screen) new HackScreen(this));
+            this.client.setScreen(new HackScreen(this));
         }));
     }
 }
